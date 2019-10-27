@@ -7,15 +7,13 @@ const wifimgr = new WifiManager();
 const wifiscn = new WifiScanner();
 
 dep.InstallMissing();
-const mode = wifimgr.Mode();
 
-console.log('Current Mode: ', mode);
-
-if(mode == 'ACCESS_POINT'){
+console.log(wifimgr.Mode())
+if(wifimgr.Mode() == 'ACCESS_POINT'){
 	require("./lib/WebServer");
 }
 
-if(mode == 'NOT_CONNECTED'){
+if(wifimgr.Mode() == 'NOT_CONNECTED'){
 	wifimgr.EnableAccessPoint();
 	require("./lib/WebServer");
 }

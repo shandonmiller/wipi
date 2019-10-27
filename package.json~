@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "preinstall": "apt-get update -y && apt-get install dnsmasq hostapd iw -y",
     "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

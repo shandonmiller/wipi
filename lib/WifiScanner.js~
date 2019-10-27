@@ -63,7 +63,7 @@ module.exports = class WifiScanner{
 
 		if(stderr){
 			console.log(`Unable to scan for wifi networks: ${stderr}`);
-		//	throw new Error(`Unable to scan for wifi networks: ${stderr}`);
+			throw new Error(`Unable to scan for wifi networks: ${stderr}`);
 		}
 
 		return stdout;

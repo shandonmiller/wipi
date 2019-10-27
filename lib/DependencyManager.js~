@@ -6,7 +6,7 @@ module.exports = class DependencyManager{
 	}
 
 	InstallMissing(){
-		//this._run('sudo apt-get update -y');
+		this._run('sudo apt-get update -y');
 
 		if(this._checkExists('dnsmasq')){
 			this._run('sudo apt-get install dnsmasq -y');
