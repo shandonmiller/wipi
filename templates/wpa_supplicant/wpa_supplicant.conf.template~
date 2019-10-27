@@ -3,7 +3,7 @@ update_config=1
 country=CA
 
 network={
-	ssid="FunkyStreet"
-	psk="A2D6EF388A"
+	ssid="{{ wifi_ssid }}"
+	psk="{{ wifi_passcode }}"
 	key_mgmt=WPA-PSK
 }

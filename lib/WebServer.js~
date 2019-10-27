@@ -1,8 +1,9 @@
 const WifiScanner = require('./WifiScanner');
-
+const WifiManager = require('./WifiManager')
 const express = require('express')
 const app = express()
 const wifiscn = new WifiScanner(); 
+const wifimgr = new WifiManager();
 app.get('/', function (req, res) {
 	let wifiNetworks = wifiscn.Scan();
   res.status(200).json(wifiNetworks);

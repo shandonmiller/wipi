@@ -23,7 +23,8 @@ module.exports = class WifiManager{
 		this._copyFile('./templates/dnsmasq/dnsmasq.ap.template', '/etc/dnsmasq.conf');
 		this._copyFile('./templates/hostapd/hostapd.ap.template', '/etc/hostapd/hostapd.conf');
 		this._copyFile('./templates/default/hostapd.ap.template', '/etc/default/hostapd');
-
+		this._copyFile('./templates/hosts/hosts.ap.template', '/etc/hosts');
+		
 		this._run('iptables -t nat -A PREROUTING -p tcp --dport 80 -j DNAT --to-destination 192.168.1.1:80');
 		this._run('sudo systemctl restart dhcpcd');
 		this._run('sudo ifconfig wlan0 down');
