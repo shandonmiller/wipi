@@ -1,0 +1,15 @@
+.list tr:hover{
+	background-color: silver;
+	cursor: pointer;
+}
+
+button{
+	background-color: #008CBA;
+	font-size: 16px;
+	border-radius: 8px;
+	padding: 12px 28px;
+}
+
+button:hover {
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}

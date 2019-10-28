@@ -1,0 +1,77 @@
+<html>
+
+	<head>
+	    <script type="text/javascript" src="/jsencrypt.js"></script>
+	    <link rel="stylesheet" href="style.css">
+	    <script>
+	        function prompt(ssid){
+				var dialog = document.querySelector('dialog'); 
+				var message = document.getElementById('p');
+				var ssidinput = document.getElementById('ssid');
+				message.innerHTML = 'The Wi-Fi network "' + ssid + '" requires a password.'
+				ssidinput.value = ssid;
+				dialog.show();
+			}
+
+			function save(){
+				var dialog = document.querySelector('dialog');
+				let password = document.getElementById("password");
+
+				var publickey = getPublicKey();
+				crypt = new JSEncrypt()
+				crypt.setPublicKey(publickey);
+
+				password.value = crypt.encrypt(password.value);
+
+				document.getElementById("myform").submit();
+				dialog.close();
+			}
+
+			function cancel(){
+				var dialog = document.querySelector('dialog');
+				dialog.close();
+			}
+
+			function getPublicKey(){
+			    var xmlHttp = new XMLHttpRequest();
+			    xmlHttp.open( "GET", '/publickey', false ); // false for synchronous request
+			    xmlHttp.send( null );
+			    return xmlHttp.responseText;
+			}
+		</script>
+	</head>
+
+	<body>
+	    <dialog>
+	        <form id="myform" action="/set" method="POST" enctype="multipart/form-data">
+	            <table>
+	                <tr>
+	                    <td><img width="30" src="/images/excellent.jpg"></td>
+	                    <td>
+	                        <p id="p"></p>
+	                    </td>
+	                </tr>
+	                <tr>
+	                    <td height="25px"></td>
+	                </tr>
+	                <tr>
+	                    <td colspan="2"><input type="password" name="password" id="password" style="width:100%"></input></td>
+	                </tr>
+	                <tr>
+	                    <td height="25px"><input type="hidden" name="ssid" id="ssid"></input></td>
+	                </tr>
+	                <tr>
+	                    <td colspan="2" align="center">
+	                        <button onClick="save()">Save</button>
+	                        <button onClick="cancel()">Cancel</button>
+	                    </td>
+	                </tr>
+	            </table>
+	        </form>
+	    </dialog>
+	    <h1 align="center">
+	        <font face="verdana">Choose a Network</font>
+	    </h1>
+	    <table class="list" width="90%">${rows}</table>
+	</body>
+<html>
