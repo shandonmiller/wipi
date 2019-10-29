@@ -69,6 +69,8 @@ app.post('/set', async function(req, res) {
     const ssid = fields.ssid;
     const password = key.decrypt(fields.password, 'utf8');
     
+    console.log('PASS: ', password);
+    console.log('SSID: ', ssid)
     wifimgr.EnableWifi(ssid, password);
     res.status(200).send('Connected');
 });

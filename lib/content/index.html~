@@ -63,7 +63,7 @@
 	                </tr>
 	                <tr>
 	                    <td colspan="2" align="center">
-	                        <button type="button" onClick="save()">Save</button>
+	                        <button onClick="save()">Save</button>
 	                        <button type="button" onClick="cancel()">Cancel</button>
 	                    </td>
 	                </tr>

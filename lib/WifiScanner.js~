@@ -20,7 +20,7 @@ module.exports = class WifiScanner{
 		lines.forEach(line => {
 			let ssid = line.match(/ESSID:\"(.*)\"/);
 			let quality = line.match(/Quality=(\d+)/);
-			let signal = line.match(/level=(.*) dBm/);
+			let signal = line.match(/level=(\d+)/);
 			let secure = line.match(/Encryption key:(on)/);
 			let open = line.match(/Encryption key:(off)/);
 
